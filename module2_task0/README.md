@@ -2,7 +2,7 @@
 
 Default readme.md
 
-## Prerequisites
+## Prerequisites - Project Life-cycle
 help: Show this
 build: Generate the website from the markdown language
 run: Runs the program
