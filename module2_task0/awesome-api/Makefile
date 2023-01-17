@@ -18,5 +18,6 @@ test: ## Tests if the website is currently running properly
 	@curl http://localhost:9999/health 
 
 post:	## Create a new blog post from the environment variables POST_TITLE and POST_NAME
+	@make stop
 	@hugo new posts/$(POST_NAME).md
 	@sed -i 's#title: ".*"#title: "$(POST_TITLE)"#g' content/posts/$(POST_NAME).md
