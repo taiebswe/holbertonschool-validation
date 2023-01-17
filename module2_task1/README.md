@@ -9,3 +9,4 @@ run: Runs the program
 stop: Kills awesome-api's current process
 clean: Delete the binary done with build command
 test: Tests if the website is currently running properly
+lint: Helps to make a lint on the files
