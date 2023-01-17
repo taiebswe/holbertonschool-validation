@@ -1,20 +1,11 @@
-# README.md
+# holbertonschool-validation
 
-help: ## Show this
-	@sed -ne '/@sed/!s/## //p' Makefile
+Default readme.md
 
-build: ## Generate the website from the markdown language
-	@go build
-
-run: ## Runs the program
-	@./awesome-api >./awesome.log 2>&1 &
-
-stop: ## Kills awesome-api's current process
-	@kill $(shell pgrep awesome-api)
-
-clean: ## Delete the binary done with build command
-	@rm awesome-api awesome.log
-
-test: ## Tests if the website is currently running properly
-	@curl http://localhost:9999 &
-	@curl http://localhost:9999/health 
+## Prerequisites
+help: Show this
+build: Generate the website from the markdown language
+run: Runs the program
+stop: Kills awesome-api's current process
+clean: Delete the binary done with build command
+test: Tests if the website is currently running properly
