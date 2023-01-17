@@ -1,14 +1,20 @@
-Exercice d'initiation devops avec HUGO
+# README.md
 
-## Commands:
-help:   Show commands comments
-build:  Generate the website from the markdown language
-clean:  Delete the website done with build command
-post:   Create a new blog post from the environment variables POST_TITLE and POST_NAME
+help: ## Show this
+	@sed -ne '/@sed/!s/## //p' Makefile
 
-## Prerequisites:
-    GNU Make in version 3.81+
-    Go Hugo v0.80+
+build: ## Generate the website from the markdown language
+	@go build
 
-## Lifecycle:
-describe the different steps
+run: ## Runs the program
+	@./awesome-api >./awesome.log 2>&1 &
+
+stop: ## Kills awesome-api's current process
+	@kill $(shell pgrep awesome-api)
+
+clean: ## Delete the binary done with build command
+	@rm awesome-api awesome.log
+
+test: ## Tests if the website is currently running properly
+	@curl http://localhost:9999 &
+	@curl http://localhost:9999/health 

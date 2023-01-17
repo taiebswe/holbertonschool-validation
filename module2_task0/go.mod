@@ -1,5 +1,5 @@
-module github.com/guenoel/holbertonschool-validation/tree/main/module1_task0
+module github.com/taiebswe/awesome-api
 
 go 1.19
 
-require github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20221214160441-315a00623c9f // indirect
+require github.com/gorilla/mux v1.8.0 // indirect
