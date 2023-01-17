@@ -11,7 +11,8 @@ stop: ## Kills awesome-api's current process
 	@kill $(shell pgrep awesome-api)
 
 clean: ## Delete the binary done with build command
-	@rm awesome-api awesome.log
+	@make stop
+	@rm awesome-api awesome.log 
 
 test: ## Tests if the website is currently running properly
 	@curl http://localhost:9999 &
