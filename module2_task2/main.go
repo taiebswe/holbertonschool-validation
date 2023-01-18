@@ -52,21 +52,23 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 
   var name string
   switch len(nameParams) {
-  case 0:
-    // Set the name variable to an empty string when there is no parameter "name" in the request
-    name = ""
-  case 1:
-    // Set the name variable to the unique parameter "name" in the request
-    name = nameParams[0]
-  default:
-    // Set the name variable to the last occurence of the parameters "name" in the request
-    name = nameParams[len(nameParams)-1]
+    case 0:
+      // Set the name variable to an empty string when there is no parameter "name" in the request
+      name = ""
+    case 1:
+      // Set the name variable to the unique parameter "name" in the request
+      name = nameParams[0]
+    default:
+      // Set the name variable to the last occurence of the parameters "name" in the request
+      name = nameParams[len(nameParams)-1]
   }
 
   // Set a default value if the name is empty
-  if name == "" {
-    name = "there"
+  if queryParams["name"] != nil && name == "" {
+    w.WriteHeader(400)
+    return
   }
+
 
   // Write the string "Hello <name>" into the response's body
   _, _ = io.WriteString(w, fmt.Sprintf("Hello %s!", name))

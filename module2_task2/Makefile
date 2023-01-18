@@ -11,8 +11,8 @@ stop: ## Kills awesome-api's current process
 	@kill "$(shell pgrep awesome-api)" 2>/dev/null &
 
 clean: ## Delete the binary done with build command
-	@make stop
-	@rm awesome-api awesome.log 
+	@make -s stop
+	@rm awesome-api awesome.log >/dev/null 2>&1 &
 
 test: ## Tests if the website is currently running properly
 	@curl http://localhost:9999 &
@@ -23,3 +23,6 @@ lint: ## Helps to make a lint on the files
 
 unit-tests: ## Runs the unit test on the project
 	go test -v -short -coverprofile=coverage-units.out
+
+deploy: ## Deploys the app
+	@make -s stop && make clean && make build && make run
