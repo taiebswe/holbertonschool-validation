@@ -26,3 +26,4 @@ unit-tests: ## Runs the unit test on the project
 
 deploy: ## Deploys the app
 	@make -s stop && make clean && make build && make run
+	@make unit-tests && go tool cover -func=coverage-units.out

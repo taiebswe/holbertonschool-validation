@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -37,6 +37,23 @@ func Test_HelloHandler(t *testing.T) {
 			queryString:  "name",
 			responseCode: 400,
 		},
+		{
+			name:         "Name Empty",
+			queryString:  "name=",
+			responseCode: 400,
+		},
+		{
+			name:         "Another queryString halo",
+			queryString:  "halo=Haloooo!",
+			responseCode: 200,
+			body:         "Hello !",
+		},
+		{
+			name:         "Without any param",
+			queryString:  "name=test&name=lol",
+			responseCode: 200,
+			body:         "Hello lol!",
+		},
 	}
 
 	for _, tt := range tests {
@@ -57,6 +74,8 @@ func Test_HelloHandler(t *testing.T) {
 			handler.ServeHTTP(rr, req)
 
 			resp := rr.Result()
+			// fmt.Println(resp)
+
 			// Check that the status code is what you expect.
 			expectedCode := tt.responseCode
 			gotCode := rr.Code
@@ -74,7 +93,6 @@ func Test_HelloHandler(t *testing.T) {
 			if gotCode == 200 && (resp.Header.Get("Content-Type") != "text/plain; charset=utf-8") {
 				t.Errorf("handler returned incorrect content type: got %v", resp.Header.Get("Content-Type"))
 			}
-			fmt.Println(resp)
 
 		})
 	}
