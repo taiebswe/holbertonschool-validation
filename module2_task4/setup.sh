@@ -7,4 +7,3 @@ curl -L https://www.npmjs.com/install.sh | sh
 npm install -g markdown-link-check
 git clone https://github.com/holbertonschool/W3C-Validator.git && cp W3C-Validator/w3c_validator.py . && rm -Rf W3C-Validator
 pip3 install requests
-make build
