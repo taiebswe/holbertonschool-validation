@@ -2,6 +2,7 @@ help:	## Show this
 	@sed -ne '/@sed/!s/## //p' Makefile
 
 build:	## Generate the website from the markdown language
+	@make check
 	@hugo
 
 clean:	## Delete the website done with build command
@@ -16,5 +17,4 @@ check: ## Lint of the Markdown source && the Analysis of the links
 	@markdown-link-check content/*/*
 
 validate: ## W3C validator for Holberton School
-	@make build
 	@./w3c_validator.py dist/index.html || true
