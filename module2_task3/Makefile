@@ -25,7 +25,7 @@ unit-tests: ## Runs the unit test on the project
 	@go test -v -short -coverprofile=coverage-units.out || echo $1
 
 integration-tests: ## Runs the integration tests on the project
-	go test -coverprofile=coverage-integrations.out
+	go test -v -coverprofile=coverage-integrations.out
 
 deploy: ## Deploys the app
 	@make -s stop && make clean && make build && make run
