@@ -2,7 +2,7 @@ help:	## Show this
 	@sed -ne '/@sed/!s/## //p' Makefile
 
 build:	## Generate the website from the markdown language
-	@hugo
+	@make check >/dev/null 2>&1 && hugo || exit -1
 
 clean:	## Delete the website done with build command
 	@rm -rf dist/
