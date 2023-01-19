@@ -12,8 +12,8 @@ post:	## Create a new blog post from the environment variables POST_TITLE and PO
 	@sed -i 's#title: ".*"#title: "$(POST_TITLE)"#g' content/posts/$(POST_NAME).md
 
 check: ## Lint of the Markdown source && the Analysis of the links
-	@markdownlint content/*/* >/dev/null 2>&1 || exit -1
-	@markdown-link-check content/*/* >/dev/null 2>&1 || exit -1
+	@markdownlint content/*/*.md
+	@markdown-link-check content/*/*.md
 
 validate: ## W3C validator for Holberton School
 	@make build
