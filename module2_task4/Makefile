@@ -2,10 +2,6 @@ help:	## Show this
 	@sed -ne '/@sed/!s/## //p' Makefile
 
 build:	## Generate the website from the markdown language
-	curl -L https://github.com/gohugoio/hugo/releases/download/v0.109.0/hugo_extended_0.109.0_linux-amd64.deb -o hugo.deb
-	apt install ./hugo.deb 2>/dev/null
-	rm hugo.deb
-	@make check
 	@hugo
 
 clean:	## Delete the website done with build command
@@ -21,4 +17,4 @@ check: ## Lint of the Markdown source && the Analysis of the links
 
 validate: ## W3C validator for Holberton School
 	@make build
-	@./w3c_validator.py dist/index.html || true
+	@./w3c_validator.py ./dist/index.html || true
