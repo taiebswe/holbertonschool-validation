@@ -11,3 +11,4 @@ clean: Delete the binary done with build command
 test: Tests if the website is currently running properly
 lint: Helps to make a lint on the files
 unit-tests: Runs the unit test on the project
+integration-tests: Run the integration tests on the project
